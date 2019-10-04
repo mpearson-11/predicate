@@ -4,29 +4,44 @@ import store from './store';
 
 import './App.css';
 
-const Page = ({ name, style }) => {
-  return (<h1 style={style}>{name}</h1>);
+const Page = ({ state, update }) => {
+  const { name, timer, date } = state;
+
+  setInterval(() => {
+    update({ ...state, date: new Date() });
+  }, timer);
+
+  return (<h1>Page: {name}, Date: {date.toLocaleString()}</h1>);
 };
 
 const App = ({ }) => {
   const page1Rules = [{
-    pathTo: 'data.someCMS1.data.pageName.name',
+    pathTo: 'data.app1.pageData.pageName',
     pathFor: 'name',
     fallback: 'No Page'
   }, {
-    pathTo: 'data.someCMS1.style',
-    pathFor: 'style',
-    fallback: {}
+    pathTo: 'data.app1.pageData.timer',
+    pathFor: 'timer',
+    fallback: 0
+  },
+  {
+    pathTo: 'data.app1.pageData.date',
+    pathFor: 'date',
+    fallback: 0
   }];
 
   const page2Rules = [{
-    pathTo: 'data.someCMS2.data.pageName.name',
+    pathTo: 'data.app2.pageData.pageName',
     pathFor: 'name',
     fallback: 'No Page'
   }, {
-    pathTo: 'data.someCMS2.style',
-    pathFor: 'style',
-    fallback: {}
+    pathTo: 'data.app2.pageData.timer',
+    pathFor: 'timer',
+    fallback: 0
+  }, {
+    pathTo: 'data.app2.pageData.date',
+    pathFor: 'date',
+    fallback: 0
   }];
 
   return (

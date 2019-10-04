@@ -3,21 +3,21 @@ import React, { useState, useEffect } from 'react';
 import engine from './rules-engine';
 import Rulesfactory from './rules-engine/factory';
 
-const reducedChildProps = ({ rules, ...props }) => ({ ...props });
+const __ = ({ rules, ...props }) => ({ ...props });
 
 const Predicate = ({ store, child }) => {
   const { rules, children } = child.props;
-  const RuleFactory = new Rulesfactory({ engine, rules });
+  const Rules = new Rulesfactory({ engine, rules });
 
-  const [storeState, update] = useState(store);
-  const [propState, updateProps] = useState(RuleFactory.applyRules(storeState));
-  const props = reducedChildProps(child.props);
+  const [_store] = useState(store);
+  const [state, update] = useState(Rules.applyRules(_store));
+  const props = __(child.props);
 
   useEffect(() => {
-    updateProps(RuleFactory.applyRules(storeState));
-  }, [storeState]);
+    update(Rules.applyRules(_store));
+  }, [_store]);
 
-  return React.cloneElement({ ...child, props }, { ...propState, update }, children);
+  return React.cloneElement({ ...child, props }, { state, update }, children);
 };
 
 export default ({ store, children }) => {

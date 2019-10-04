@@ -1,25 +1,17 @@
 export default {
   data: {
-    someCMS1: {
-      data: {
-        pageName: {
-          name: 'Page 1'
-        }
-      },
-      style: {
-        float: 'left',
-        marginLeft: '10px'
+    app1: {
+      pageData: {
+        pageName: "Page 1",
+        timer: 1000,
+        date: new Date()
       }
     },
-    someCMS2: {
-      data: {
-        pageName: {
-          name: 'Page 2'
-        }
-      },
-      style: {
-        float: 'left',
-        marginLeft: '20px'
+    app2: {
+      pageData: {
+        pageName: "Page 2",
+        timer: 1000,
+        date: new Date()
       }
     }
   }
