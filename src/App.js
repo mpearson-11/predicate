@@ -14,7 +14,7 @@ const Page = ({ state, update }) => {
   return (<h1>Page: {name}, Date: {date.toLocaleString()}</h1>);
 };
 
-const App = ({ }) => {
+const App = () => {
   const page1Rules = [{
     pathTo: 'data.app1.pageData.pageName',
     pathFor: 'name',

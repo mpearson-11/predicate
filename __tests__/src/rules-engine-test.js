@@ -1,4 +1,4 @@
-import rulesEngine from '../rules-engine';
+import rulesEngine from '../../src/rules-engine';
 
 describe('rules engine', () => {
   test('works', () => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 
 import engine from './rules-engine';
 import Rulesfactory from './rules-engine/factory';
@@ -7,15 +7,15 @@ const __ = ({ rules, ...props }) => ({ ...props });
 
 const Predicate = ({ store, child }) => {
   const { rules, children } = child.props;
-  const Rules = new Rulesfactory({ engine, rules });
+  const rulesEngine = new Rulesfactory({ engine, rules });
 
   const [_store] = useState(store);
-  const [state, update] = useState(Rules.applyRules(_store));
+  const [state, update] = useState(rulesEngine.applyRules(_store));
   const props = __(child.props);
 
-  useEffect(() => {
-    update(Rules.applyRules(_store));
-  }, [_store]);
+  useLayoutEffect(() => {
+    update(rulesEngine.applyRules(_store));
+  }, [store]);
 
   return React.cloneElement({ ...child, props }, { state, update }, children);
 };

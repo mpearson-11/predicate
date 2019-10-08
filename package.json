@@ -12,8 +12,9 @@
     "ramda": "^0.25.0"
   },
   "devDependencies": {
+    "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
-    "babel-jest": "^24.9.0"
+    "webpack": "^4.41.0"
   },
   "scripts": {
     "start": "react-scripts start",
