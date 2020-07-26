@@ -13,19 +13,19 @@ module.exports = {
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold: {
     global: {
-        branches: 100,
-        functions: 100,
-        lines: 100,
-        statements: 100,
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
     },
   },
 
   testEnvironment: "node",
 
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)"
+    "**/__tests__/**/*.(ts|js)"
   ],
-  testPathIgnorePatterns: [
-    "/node_modules/"
-  ]
+  transform: {
+    "^.+\\.(ts|tsx)": "ts-jest"
+  },
 };
