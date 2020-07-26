@@ -1,5 +1,5 @@
 {
-  "name": "@mpearson-11/rules-engine",
+  "name": "mrules-engine",
   "version": "0.4.0",
   "dependencies": {
     "flat": "^4.0.0",
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/mpearson-11/rules-engine#readme",
   "scripts": {
     "test": "jest --coverage",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc --skipLibCheck"
   },
   "eslintConfig": {
     "extends": "react-app"
