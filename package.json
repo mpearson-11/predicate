@@ -1,6 +1,6 @@
 {
   "name": "@mpearson-11/rules-engine",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "dependencies": {
     "flat": "^4.0.0",
     "ramda": "^0.25.0"
