@@ -5,7 +5,7 @@
     "flat": "^4.0.0",
     "ramda": "^0.25.0"
   },
-  "main": "dist/index",
+  "main": "dist/rules-engine.js",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
@@ -35,7 +35,7 @@
       "last 1 safari version"
     ]
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": { "registry": "https://npm.pkg.github.com" },
   "repository": {
     "type" : "git",
     "url" : "https://github.com/mpearson-11/rules-engine.git"
