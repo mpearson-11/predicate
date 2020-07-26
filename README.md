@@ -19,12 +19,9 @@ const rules = [{
 }];
 
 const data = engine(pageData, rules);
-const emptyData = engine(pageData, []);
 
 console.log(data);
-console.log(emptyData);
 
 // Output: { page: 'This is my Page 1' }
-// Output: { page: 'This is my page-1' }
 
 ```
