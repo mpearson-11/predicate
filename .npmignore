@@ -12,3 +12,5 @@ CVS
 npm-debug.log
 .babelrc
 coverage/**
+src/**
+__tests__/**
