@@ -1,6 +1,6 @@
 {
   "name": "@mpearson-11/rules-engine",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "flat": "^4.0.0",
     "ramda": "^0.25.0"
@@ -35,9 +35,11 @@
       "last 1 safari version"
     ]
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/mpearson-11/rules-engine.git"
+    "type": "git",
+    "url": "https://github.com/mpearson-11/rules-engine.git"
   }
 }
