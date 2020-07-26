@@ -8,9 +8,10 @@ A package for generating objects via a set of rules.
 npm install mrules-engine
 ```
 
-## Example:
+---
+### Standard Example:
 ```js
-const engine = require('./mrules-engine');
+const engine = require('mrules-engine');
 
 const exampleRules1 = [{
     pathTo: 'data.name',
@@ -20,13 +21,14 @@ const exampleRules1 = [{
 const example1 = engine({ data: { name: 'Name' } }, exampleRules1);
 console.log(example1);
 
-// Output: { name: 'Name' };
+> { name: 'Name' };
 
 ```
 
-## Example with selectorFn
+---
+### selectorFn example
 ```js
-const engine = require('./mrules-engine');
+const engine = require('mrules-engine');
 
 const exampleRules2 = [{
     pathTo: 'data.name',
@@ -37,40 +39,42 @@ const exampleRules2 = [{
 const example2 = engine({ data: { name: 'Name' } }, exampleRules2);
 console.log(example2);
 
-// Output: { name: 'My Name: Name' };
+> { name: 'My Name: Name' };
 ```
 
-## Fallback Example:
+---
+### Fallback example
 
 ```js
-const engine = require('./mrules-engine');
+const engine = require('mrules-engine');
 
-const exampleRules2 = [{
+const exampleRules3 = [{
     pathTo: 'data.nameDoesNotExist',
     pathFor: 'name',
     fallback: 'Fallback Name'
 }];
 
-const example2 = engine({ data: { name: 'Name' } }, exampleRules2);
-console.log(example2);
+const example3 = engine({ data: { name: 'Name' } }, exampleRules3);
+console.log(example3);
 
-// Output: { name: 'Fallback Name' };
+> { name: 'Fallback Name' };
 ```
 
-## Fallback with selectorFn Example:
+---
+### Fallback with selectorFn example
 
 ```js
-const engine = require('./mrules-engine');
+const engine = require('mrules-engine');
 
-const exampleRules2 = [{
+const exampleRules4 = [{
     pathTo: 'data.nameDoesNotExist',
     pathFor: 'name',
     selectorFn: (name) => `Your Fallback Name: ${name}`,
     fallback: 'Fallback Name'
 }];
 
-const example2 = engine({ data: { name: 'Name' } }, exampleRules2);
-console.log(example2);
+const example4 = engine({ data: { name: 'Name' } }, exampleRules4);
+console.log(example4);
 
-// Output: { name: 'Your Fallback Name: Fallback Name' };
+> { name: 'Your Fallback Name: Fallback Name' };
 ```
