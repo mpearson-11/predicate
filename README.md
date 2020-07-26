@@ -10,7 +10,7 @@ npm install mrules-engine
 
 ## Example:
 ```js
-const engine = require('./rules-engine');
+const engine = require('./mrules-engine');
 
 const exampleRules1 = [{
     pathTo: 'data.name',
@@ -26,7 +26,7 @@ console.log(example1);
 
 ## Example with selectorFn
 ```js
-const engine = require('./rules-engine');
+const engine = require('./mrules-engine');
 
 const exampleRules2 = [{
     pathTo: 'data.name',
@@ -43,7 +43,7 @@ console.log(example2);
 ## Fallback Example:
 
 ```js
-const engine = require('./rules-engine');
+const engine = require('./mrules-engine');
 
 const exampleRules2 = [{
     pathTo: 'data.nameDoesNotExist',
@@ -60,7 +60,7 @@ console.log(example2);
 ## Fallback with selectorFn Example:
 
 ```js
-const engine = require('./rules-engine');
+const engine = require('./mrules-engine');
 
 const exampleRules2 = [{
     pathTo: 'data.nameDoesNotExist',
