@@ -5,7 +5,7 @@ describe('rules engine', () => {
     const pageData = {
       app: true
     };
-    
+
     const rules = [{
       pathTo: 'app.0',
       pathFor: 'first',
@@ -28,7 +28,7 @@ describe('rules engine', () => {
       banana: 'I AM A BANANA',
       apple: 'I AM AN APPLE',
     };
-    
+
     const rules = [{
       pathTo: 'banana',
       pathFor: 'fruits.0'
@@ -39,7 +39,7 @@ describe('rules engine', () => {
     }];
 
     const dataSet = rulesEngine(pageData, rules);
-    expect(dataSet).toEqual({ fruits: ['I AM A BANANA', 'I AM AN APPLE']});
+    expect(dataSet).toEqual({ fruits: ['I AM A BANANA', 'I AM AN APPLE'] });
   });
   test('returns correct rule data for selectorFun', () => {
     const pageData = {
@@ -53,7 +53,7 @@ describe('rules engine', () => {
     const rules = [{
       pathTo: 'app.data',
       pathFor: 'data',
-      selectorFn: ({ page, ...other }) => ({ page: `This is my ${page}`, ...other }),
+      selectorFn: (params: any) => ({ ...params , page: `This is my ${params.page}` }),
       fallback: 'page-1'
     }];
 
