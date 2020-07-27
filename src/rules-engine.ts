@@ -1,6 +1,5 @@
 const { unflatten } = require('flat');
-
-const extract = require('./extract-rules');
+const pathOr = require('./path-or');
 
 // Interfaces
 interface Rule {
@@ -14,12 +13,13 @@ interface Acc {
   [key: string]: Object;
 };
 
+const extract = (_path: String, body: Object) => pathOr(null, _path.split('.'), body);
 const execute = (body: Object, acc: Acc, item: Rule) => {
   const {
     pathTo,
     pathFor,
     fallback = null,
-    selectorFn = (s: Object) => s,
+    selectorFn = (s: any) => s,
   } = item;
 
   acc[pathFor] = selectorFn(extract(pathTo, body) || fallback);
