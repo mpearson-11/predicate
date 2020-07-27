@@ -43,4 +43,6 @@ const executeRules = (rules: Array<Rule>, data: Object) => {
   return {};
 };
 
-module.exports = (data: Object, rules: Array<Rule>) => unflatten(executeRules(rules, data));
+const executeRulesEngine = (data: Object, rules: Array<Rule>) => unflatten(executeRules(rules, data));
+
+module.exports = executeRulesEngine;
