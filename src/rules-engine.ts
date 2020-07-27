@@ -1,5 +1,5 @@
-const { pathOr } = require('ramda');
 const { unflatten } = require('flat');
+const pathOr = require('./path-or');
 
 // Interfaces
 interface Rule {
@@ -14,15 +14,12 @@ interface Acc {
 };
 
 const extract = (_path: String, body: Object) => pathOr(null, _path.split('.'), body);
-
-const defaultSelector = (selected: Object) => selected;
-
 const execute = (body: Object, acc: Acc, item: Rule) => {
   const {
     pathTo,
     pathFor,
     fallback = null,
-    selectorFn = defaultSelector,
+    selectorFn = (s: any) => s,
   } = item;
 
   acc[pathFor] = selectorFn(extract(pathTo, body) || fallback);
