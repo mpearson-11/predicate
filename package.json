@@ -1,6 +1,6 @@
 {
   "name": "mrules-engine",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "dependencies": {
     "flat": "^4.0.0",
     "ramda": "^0.25.0"
