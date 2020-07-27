@@ -1,5 +1,10 @@
 const { unflatten } = require('flat');
-const pathOr = require('./path-or');
+
+const generatePath = (defaultValue: any, obj: Object, ...keys: any) =>
+  keys.reduce((acc: any, key: string) => (acc || {})[key], obj) || defaultValue;
+
+const pathOr = (defaultValue: any, paths: Array<string>, body: Object) =>
+  generatePath(defaultValue, body, ...paths);
 
 // Interfaces
 interface Rule {
