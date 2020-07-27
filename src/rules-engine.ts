@@ -1,5 +1,6 @@
-const { pathOr } = require('ramda');
 const { unflatten } = require('flat');
+
+const extract = require('./extract-rules');
 
 // Interfaces
 interface Rule {
@@ -13,16 +14,12 @@ interface Acc {
   [key: string]: Object;
 };
 
-const extract = (_path: String, body: Object) => pathOr(null, _path.split('.'), body);
-
-const defaultSelector = (selected: Object) => selected;
-
 const execute = (body: Object, acc: Acc, item: Rule) => {
   const {
     pathTo,
     pathFor,
     fallback = null,
-    selectorFn = defaultSelector,
+    selectorFn = (s: Object) => s,
   } = item;
 
   acc[pathFor] = selectorFn(extract(pathTo, body) || fallback);
