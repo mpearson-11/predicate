@@ -15,3 +15,5 @@ coverage/**
 src/**
 __tests__/**
 .circleci/**
+jest.config.js
+tsconfig.json
