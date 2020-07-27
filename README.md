@@ -78,3 +78,24 @@ console.log(example4);
 
 > { name: 'Your Fallback Name: Fallback Name' };
 ```
+
+### Multiple Rules with selectorFn
+
+```js
+const engine = require('mrules-engine');
+
+const exampleRules5 = [{
+    pathTo: 'data.name',
+    pathFor: 'name',
+    selectorFn: (name) => `Forename: ${name}`
+}, {
+    pathTo: 'data.surname',
+    pathFor: 'surname',
+    selectorFn: (name) => `Surname: ${name}`
+}];
+
+const example5 = engine({ data: { name: 'Foo', surname: 'Bar' } }, exampleRules5);
+console.log(example5);
+
+> { name: 'Forename: Foo', surname: 'Surname: Bar'  };
+```

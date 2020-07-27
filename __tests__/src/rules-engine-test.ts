@@ -53,7 +53,7 @@ describe('rules engine', () => {
     const rules = [{
       pathTo: 'app.data',
       pathFor: 'data',
-      selectorFn: (params: any) => ({ ...params , page: `This is my ${params.page}` }),
+      selectorFn: (params: any) => ({ ...params, page: `This is my ${params.page}` }),
       fallback: 'page-1'
     }];
 
