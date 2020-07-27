@@ -1,7 +1,67 @@
 const rulesEngine = require('../../src/rules-engine');
 
 describe('rules engine', () => {
-  test('returns null for none Array', () => {
+  test('return {} for incorrect type of rules or data', () => {
+    expect(rulesEngine(null, {})).toEqual({});
+    expect(rulesEngine('', {})).toEqual({});
+    expect(rulesEngine(undefined, {})).toEqual({});
+
+    expect(rulesEngine({}, null)).toEqual({});
+    expect(rulesEngine(null, null)).toEqual({});
+    expect(rulesEngine('', null)).toEqual({});
+
+    expect(rulesEngine(null, '')).toEqual({});
+    expect(rulesEngine({}, '')).toEqual({});
+    expect(rulesEngine('', '')).toEqual({});
+
+    expect(rulesEngine(null, undefined)).toEqual({});
+    expect(rulesEngine({}, undefined)).toEqual({});
+    expect(rulesEngine('', undefined)).toEqual({});
+  });
+
+  test('returns cloned object', () => {
+    const rules = [{
+      pathTo: 'someObjectData.person',
+      pathFor: 'aPerson',
+      selectorFn: (data: any) => {
+        data.name = 'Changed Name';
+        return data;
+      }
+    }];
+
+    const pageData = {
+      someObjectData: {
+        person: {
+          name: 'Max'
+        }
+      }
+    };
+
+    const dataSet = rulesEngine(pageData, rules);
+    expect(dataSet).toEqual({ aPerson: { name: 'Changed Name' } });
+    expect(pageData.someObjectData.person.name).toBe('Max'); // expect original isn't changed
+  });
+
+  test('returns cloned array', () => {
+    const rules = [{
+      pathTo: 'someArrayData',
+      pathFor: 'newSomeData',
+      selectorFn: (ar: any) => {
+        ar.pop();
+        return ar;
+      }
+    }];
+
+    const pageData = {
+      someArrayData: ['a', 'b', 'c']
+    };
+
+    const dataSet = rulesEngine(pageData, rules);
+    expect(dataSet).toEqual({ newSomeData: ['a', 'b'] });
+    expect(pageData.someArrayData.length).toBe(3); // expect original isn't changed
+  });
+
+  test('returns null for badly formatted rules', () => {
     const pageData = {
       app: true
     };
