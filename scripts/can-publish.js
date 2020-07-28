@@ -45,13 +45,15 @@ const runPublishTests = (engine) => {
 };
 
 exec('npm link mrules-engine', (err) => {
-    if (err) process.exit(-1);
-
-    const engine = require('mrules-engine');
-
-    if (runPublishTests(engine)) {
-        // passed
+    if (err) {
+        console.log('ERROR', err);
     } else {
-        process.exit(-1);
+        const engine = require('mrules-engine');
+
+        if (runPublishTests(engine)) {
+            // passed
+        } else {
+            process.exit(-1);
+        }
     }
 });
