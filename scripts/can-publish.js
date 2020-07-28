@@ -50,10 +50,8 @@ exec('npm link mrules-engine', (err) => {
     const engine = require('mrules-engine');
 
     if (runPublishTests(engine)) {
-        console.log('>> SAFE TO PUBLISH <<');
         process.exit(0);
     } else {
-        console.error('>> UNSAFE TO PUBLISH <<');
         process.exit(-1);
     }
 });
