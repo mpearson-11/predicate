@@ -101,3 +101,7 @@ console.log(example5);
 
 > { name: 'Forename: Foo', surname: 'Surname: Bar'  };
 ```
+
+# Releasing
+
+- `./scripts/release.sh [patch/minor/major]`

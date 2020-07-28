@@ -51,6 +51,7 @@ exec('npm install && npm run build && npm link mrules-engine', (err) => {
 
     if (runPublishTests(engine)) {
         console.log('>> SAFE TO PUBLISH <<');
+        process.exit();
     } else {
         console.error('>> UNSAFE TO PUBLISH <<');
         process.exit(-1);
