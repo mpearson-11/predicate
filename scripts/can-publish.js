@@ -44,7 +44,7 @@ const runPublishTests = (engine) => {
     return true;
 };
 
-exec('npm run build && npm link mrules-engine', (err) => {
+exec('npm link mrules-engine', (err) => {
     if (err) process.exit(-1);
 
     const engine = require('mrules-engine');
