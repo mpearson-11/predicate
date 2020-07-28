@@ -17,7 +17,7 @@
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "homepage": "https://github.com/mpearson-11/rules-engine#readme",
   "scripts": {
     "test": "jest --coverage",
