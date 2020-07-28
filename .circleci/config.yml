@@ -11,19 +11,7 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
-  safe-to-npm-release:
-      executor:
-        name: node/default
-      steps:
-        - checkout
-        - run: npm install
-        - run: npm run build
-        - run: chmod 777 /usr/local/lib/node_modules/*
-        - run: npm link mrules-engine
-        - run: npm run check
-
 workflows:
     build-and-test:
       jobs:
         - build-and-test
-        - safe-to-npm-release
