@@ -17,7 +17,7 @@ jobs:
       steps:
         - checkout
         - run: npm install
-        - run: npm link mrules-engine && node ./test-build-script.js
+        - run: npm run check
 
 workflows:
     build-and-test:
