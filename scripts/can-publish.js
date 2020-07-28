@@ -50,7 +50,7 @@ exec('npm link mrules-engine', (err) => {
     const engine = require('mrules-engine');
 
     if (runPublishTests(engine)) {
-        process.exit(0);
+        // passed
     } else {
         process.exit(-1);
     }
