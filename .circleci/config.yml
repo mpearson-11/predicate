@@ -11,8 +11,20 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
-            - run: npm link mrules-engine && node ./test-build-script.js
+  test-build:
+      executor:
+        name: node/default
+      steps:
+        - checkout
+        - node/without-cache:
+            steps:
+              - run: npm install
+              - run: npm link mrules-engine && node ./test-build-script.js
+
 workflows:
     build-and-test:
       jobs:
         - build-and-test
+    test-build:
+      jobs:
+        - test-build
