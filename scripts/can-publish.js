@@ -46,7 +46,7 @@ const runPublishTests = (engine) => {
 
 if (runPublishTests(engine)) {
     // passed
-    console.log('>>UNSAFE<<');
+    console.log('>>SAFE<<');
 } else {
     console.log('>>UNSAFE<<');
 }
