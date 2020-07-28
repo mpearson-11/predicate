@@ -35,8 +35,8 @@ const testRules = [{
 const testOutput = engine(tests, testRules);
 
 Object.keys(testOutput).forEach((test, index) => {
-    if (test === `PASSED: TEST ${index}`) {
-        console.log(test);
+    if (testOutput[test] === `PASSED: TEST ${index + 1}`) {
+        console.log(testOutput[test]);
     } else {
         console.log('ERROR');
         process.exit(1);
