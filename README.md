@@ -2,6 +2,8 @@
 
 A package for generating objects via a set of rules.
 
+**Please use version 1.3.2 and above as below will be unstable**
+
 # Installation
 
 ```bash
