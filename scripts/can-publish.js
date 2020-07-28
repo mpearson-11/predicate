@@ -1,4 +1,4 @@
-const { exec } = require('child_process');
+const engine = require('mrules-engine');
 
 const runPublishTests = (engine) => {
     const tests = {
@@ -44,12 +44,9 @@ const runPublishTests = (engine) => {
     return true;
 };
 
-const engine = require('mrules-engine');
-
 if (runPublishTests(engine)) {
     // passed
-    console.log('>> SAFE TO PUBLISH <<');
+    console.log('>>UNSAFE<<');
 } else {
-    console.log('>> UNSAFE TO PUBLISH <<');
-    process.exit(-1);
+    console.log('>>UNSAFE<<');
 }
