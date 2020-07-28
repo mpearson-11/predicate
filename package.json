@@ -21,7 +21,8 @@
   "homepage": "https://github.com/mpearson-11/rules-engine#readme",
   "scripts": {
     "test": "jest --coverage",
-    "build": "rimraf ./dist && tsc --skipLibCheck"
+    "build": "rimraf ./dist && tsc --skipLibCheck",
+    "check": "node ./can-publish.js"
   },
   "eslintConfig": {
     "extends": "react-app"
