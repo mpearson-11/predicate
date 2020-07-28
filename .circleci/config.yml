@@ -18,6 +18,7 @@ jobs:
         - checkout
         - run: npm install
         - run: npm run build
+        - run: npm link mrules-engine
         - run: npm run check
 
 workflows:
