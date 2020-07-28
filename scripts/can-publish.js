@@ -45,12 +45,13 @@ const runPublishTests = (engine) => {
 };
 
 exec('npm install && npm run build && npm link mrules-engine', (err) => {
-    if (err) process.exit();
+    if (err) process.exit(-1);
 
     const engine = require('mrules-engine');
 
     if (runPublishTests(engine)) {
         console.log('>> SAFE TO PUBLISH <<');
+        process.exit(-1);
     } else {
         console.log('>> UNSAFE TO PUBLISH <<');
     }

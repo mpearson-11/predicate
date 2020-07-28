@@ -11,16 +11,15 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
-  test-build:
+  safe-to-npm-release:
       executor:
         name: node/default
       steps:
         - checkout
-        - run: npm install
         - run: npm run check
 
 workflows:
     build-and-test:
       jobs:
         - build-and-test
-        - test-build
+        - safe-to-npm-release
