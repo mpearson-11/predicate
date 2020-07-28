@@ -22,7 +22,7 @@
   "scripts": {
     "test": "jest --coverage",
     "build": "rimraf ./dist && tsc --skipLibCheck",
-    "check": "node ./can-publish.js"
+    "check": "node ./scripts/can-publish.js"
   },
   "eslintConfig": {
     "extends": "react-app"
