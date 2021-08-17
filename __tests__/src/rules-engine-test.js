@@ -23,7 +23,7 @@ describe('rules engine', () => {
     const rules = [{
       pathTo: 'someObjectData.person',
       pathFor: 'aPerson',
-      selectorFn: (data: any) => {
+      selectorFn: (data) => {
         data.name = 'Changed Name';
         return data;
       }
@@ -46,7 +46,7 @@ describe('rules engine', () => {
     const rules = [{
       pathTo: 'someArrayData',
       pathFor: 'newSomeData',
-      selectorFn: (ar: any) => {
+      selectorFn: (ar) => {
         ar.pop();
         return ar;
       }
@@ -113,7 +113,7 @@ describe('rules engine', () => {
     const rules = [{
       pathTo: 'app.data',
       pathFor: 'data',
-      selectorFn: (params: any) => ({ ...params, page: `This is my ${params.page}` }),
+      selectorFn: (params) => ({ ...params, page: `This is my ${params.page}` }),
       fallback: 'page-1'
     }];
 
